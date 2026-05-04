@@ -1,3 +1,5 @@
+import { CONFIG } from "../config.js";
+
 export function initNavigation() {
   const burger = document.getElementById("navBurger");
   const nav = document.querySelector(".navbar");
@@ -15,7 +17,8 @@ export function initNavigation() {
     });
   });
 
+  const coursesUrl = CONFIG.routes?.cursos || "cursos.html";
   document.querySelector(".nav-search")?.addEventListener("click", () => {
-    document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" });
+    window.location.href = `${coursesUrl}#courses`;
   });
 }

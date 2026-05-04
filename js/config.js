@@ -2,6 +2,14 @@
  * Rutas de datos y textos centralizados (escalable para nuevos endpoints).
  */
 export const CONFIG = {
+  /** Rutas de vistas (MPA); mantener alineadas con el navbar en cada HTML. */
+  routes: {
+    home: "index.html",
+    programa: "programa.html",
+    cursos: "cursos.html",
+    gestores: "gestores.html",
+    contacto: "contacto.html",
+  },
   data: {
     instructors: "data/instructors.json",
     courses: "data/courses.json",

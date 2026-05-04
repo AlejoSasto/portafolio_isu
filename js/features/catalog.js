@@ -1,6 +1,7 @@
 import { CONFIG } from "../config.js";
 import { fetchJson } from "../services/api.js";
 import {
+  getCourses,
   getInstructors,
   setInstructors,
   setCourses,
@@ -9,6 +10,9 @@ import { renderInstructorCard, wireInstructorPhotos } from "../components/instru
 import { renderCourseCard } from "../components/courseCard.js";
 import { openPricingModal } from "./pricingModal.js";
 import { escapeHtml } from "../utils/sanitize.js";
+
+/** @type {Promise<Array<Record<string, unknown>>> | null} */
+let coursesLoadPromise = null;
 
 export async function loadInstructors() {
   const grid = document.getElementById("instructorGrid");
@@ -50,22 +54,66 @@ function fillCourseSelect(data) {
     '<option value="otro">Otro / consulta general</option>';
 }
 
-export async function loadCourses() {
-  const grid = document.getElementById("courseGrid");
-  if (!grid) return;
+/**
+ * Obtiene cursos desde JSON, actualiza estado y el select del formulario si existe.
+ * @returns {Promise<Array<Record<string, unknown>>>}
+ */
+export async function ensureCoursesLoaded() {
+  if (coursesLoadPromise) return coursesLoadPromise;
 
-  try {
+  coursesLoadPromise = (async () => {
     const data = await fetchJson(CONFIG.data.courses);
     if (!Array.isArray(data)) throw new Error("Formato inválido");
     setCourses(data);
-    grid.innerHTML = data
-      .map((c) => renderCourseCard(c, getInstructors()))
-      .join("");
-
-    bindPricingButtons(grid);
     fillCourseSelect(data);
+    return data;
+  })().catch((err) => {
+    coursesLoadPromise = null;
+    throw err;
+  });
+
+  return coursesLoadPromise;
+}
+
+/**
+ * Pinta la rejilla de cursos usando el estado en memoria (tras ensureCoursesLoaded).
+ */
+export function renderCourseGridFromCache() {
+  const grid = document.getElementById("courseGrid");
+  if (!grid) return;
+
+  const data = getCourses();
+  grid.innerHTML = data
+    .map((c) => renderCourseCard(c, getInstructors()))
+    .join("");
+  bindPricingButtons(grid);
+}
+
+export async function loadCourses() {
+  const grid = document.getElementById("courseGrid");
+  try {
+    await ensureCoursesLoaded();
+    if (grid) renderCourseGridFromCache();
   } catch {
-    grid.innerHTML = `<p class="section-lead">${grid.getAttribute("data-empty-msg") || "Error al cargar cursos."}</p>`;
+    if (grid) {
+      grid.innerHTML = `<p class="section-lead">${grid.getAttribute("data-empty-msg") || "Error al cargar cursos."}</p>`;
+    }
+  }
+}
+
+/**
+ * Solo para la página de contacto: carga JSON y llena el select de cursos.
+ */
+export async function loadCoursesForContactForm() {
+  try {
+    await ensureCoursesLoaded();
+  } catch {
+    const courseSelect = document.getElementById("cf-course");
+    if (courseSelect) {
+      courseSelect.innerHTML =
+        '<option value="">No se pudieron cargar los cursos</option>' +
+        '<option value="otro">Otro / consulta general</option>';
+    }
   }
 }
 

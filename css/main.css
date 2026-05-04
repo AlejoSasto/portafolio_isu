@@ -6,6 +6,7 @@
 @import url("base/typography-layout.css");
 @import url("components/buttons.css");
 @import url("components/navbar.css");
+@import url("layout/home-hub.css");
 @import url("sections/hero.css");
 @import url("layout/breadcrumbs.css");
 @import url("components/cards.css");

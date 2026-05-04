@@ -1,0 +1,197 @@
+/* Home tipo plataforma — banner informativo y accesos rápidos */
+
+.home-banner {
+  position: relative;
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  background: linear-gradient(
+    135deg,
+    var(--green-pale) 0%,
+    var(--white) 45%,
+    rgba(76, 175, 80, 0.12) 100%
+  );
+  border-bottom: 1px solid rgba(27, 94, 32, 0.12);
+}
+
+.home-banner-inner {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .home-banner-inner {
+    grid-template-columns: 1fr minmax(240px, 320px);
+  }
+}
+
+.home-banner-copy {
+  max-width: 62ch;
+}
+
+.home-banner .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.home-banner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.5vw, 2.65rem);
+  color: var(--green-dark);
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
+
+.home-banner-lead {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+
+.home-banner-points {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.home-banner-points li {
+  margin-bottom: 0.35rem;
+}
+
+.home-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.home-banner-aside {
+  justify-self: stretch;
+}
+
+.home-banner-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(27, 94, 32, 0.12);
+}
+
+.home-banner-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--green-mid);
+  margin-bottom: 0.65rem;
+}
+
+.home-banner-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 0 0 0.35rem;
+  line-height: 1.25;
+}
+
+.home-banner-card-meta {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Hub — tarjetas de acceso */
+.hub-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .hub-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.35rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid rgba(27, 94, 32, 0.14);
+  box-shadow: 0 2px 12px rgba(27, 94, 32, 0.06);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hub-card:hover {
+  border-color: var(--green-light);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.hub-card:focus-visible {
+  outline: 2px solid var(--green-mid);
+  outline-offset: 2px;
+}
+
+.hub-card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.hub-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--green-dark);
+}
+
+.hub-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.hub-card-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green-mid);
+  margin-top: 0.25rem;
+}
+
+.hub-card:hover .hub-card-cta {
+  text-decoration: underline;
+}
+
+/* Encabezado de página interior */
+.page-hero {
+  padding: clamp(1rem, 3vw, 1.75rem) 0 0.5rem;
+}
+
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 4vw, 2.25rem);
+  color: var(--green-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.page-hero-lead {
+  margin: 0;
+  max-width: 65ch;
+}

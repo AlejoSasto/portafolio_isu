@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto e inscripción en educación continuada ISC Ubaté. Formulario seguro hacia el programa en la Seccional Ubaté, Universidad de Cundinamarca.">
+  <title>Contacto · Educación Continuada ISC Ubaté · Universidad de Cundinamarca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="contacto">
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="navbar" id="top">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo-link">
+        <img class="logo-escudo" src="assets/escudo-color.png" width="48" height="56" alt="Universidad de Cundinamarca">
+      </a>
+      <div class="nav-brand">
+        <strong>Universidad de Cundinamarca</strong>
+        <span>Ingeniería de Sistemas y Computación · Ubaté</span>
+      </div>
+    </div>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="index.html" data-nav="home">Inicio</a>
+      <a href="programa.html" data-nav="programa">Programa</a>
+      <a href="cursos.html" data-nav="cursos">Cursos</a>
+      <a href="gestores.html" data-nav="gestores">Gestores del conocimiento</a>
+      <a href="contacto.html" data-nav="contacto">Contacto</a>
+    </nav>
+    <div class="nav-right">
+      <button type="button" class="nav-search" aria-label="Ir al catálogo de cursos" title="Catálogo de cursos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a class="btn btn-primary" href="contacto.html">Inscribirme</a>
+    </div>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs container reveal" aria-label="Miga de pan">
+      <ol>
+        <li><a href="index.html">Inicio</a></li>
+        <li aria-current="page">Contacto</li>
+      </ol>
+    </nav>
+
+    <header class="page-hero container reveal">
+      <h1 class="page-hero-title">Contacto e inscripción</h1>
+      <p class="page-hero-lead section-lead">
+        Seccional Ubaté, Universidad de Cundinamarca. Complete el formulario; su mensaje se envía de forma segura y el programa le responderá.
+      </p>
+    </header>
+
+    <section class="section section-alt reveal" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <ul class="contact-list">
+            <li><strong>Programa:</strong> Ingeniería de Sistemas y Computación</li>
+            <li><strong>Sede:</strong> Ubaté, Cundinamarca</li>
+          </ul>
+        </div>
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://formspree.io/f/xojreznl"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="_subject" value="Educación continua ISC Ubaté — solicitud desde el sitio">
+          <label for="cf-name">Nombre completo</label>
+          <input type="text" id="cf-name" name="name" required autocomplete="name">
+
+          <label for="cf-email">Correo electrónico</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email">
+
+          <label for="cf-phone">Teléfono</label>
+          <input type="tel" id="cf-phone" name="phone" autocomplete="tel">
+
+          <label for="cf-course">Curso de interés</label>
+          <select id="cf-course" name="course">
+            <option value="">Seleccione…</option>
+          </select>
+
+          <label for="cf-message">Mensaje</label>
+          <textarea id="cf-message" name="message" rows="4"></textarea>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img class="logo-escudo logo-escudo--sm" src="assets/escudo-color.png" width="40" height="47" alt="Universidad de Cundinamarca">
+        <div>
+          <strong>Ingeniería de Sistemas y Computación · Ubaté</strong>
+          <span>Educación continuada · Universidad de Cundinamarca</span>
+        </div>
+      </div>
+      <p class="footer-address">Universidad de Cundinamarca — Seccional Ubaté, Cundinamarca, Colombia.</p>
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="Facebook">f</a>
+        <a href="#" class="social-link" aria-label="WhatsApp">W</a>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Universidad de Cundinamarca · Ingeniería de Sistemas y Computación · Seccional Ubaté. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="contactSuccessModal" role="dialog" aria-modal="true" aria-labelledby="contactSuccessTitle" hidden>
+    <div class="modal-backdrop" data-close-contact-success></div>
+    <div class="modal-card modal-card--contact-success">
+      <button type="button" class="modal-close" id="contactSuccessClose" aria-label="Cerrar">&times;</button>
+      <h2 id="contactSuccessTitle" class="modal-title">Envío exitoso</h2>
+      <p class="modal-success-message">
+        Su mensaje se envió correctamente. Nos estaremos comunicando con usted pronto.
+      </p>
+      <button type="button" class="btn btn-primary btn-block" data-close-contact-success>Aceptar</button>
+    </div>
+  </div>
+
+  <button type="button" class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
