@@ -6,6 +6,10 @@ export const CONFIG = {
     instructors: "data/instructors.json",
     courses: "data/courses.json",
   },
+  /** Formspree — educación continua ISC Ubaté */
+  formspree: {
+    endpoint: "https://formspree.io/f/xojreznl",
+  },
   ui: {
     courseGridEmptyDefault: "No hay cursos que coincidan con el filtro.",
     comingSoonEmpty:
