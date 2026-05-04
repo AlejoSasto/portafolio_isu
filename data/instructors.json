@@ -1,0 +1,20 @@
+[
+  {
+    "id": "inst_001",
+    "name": "Diego Fernando Pachón Maldonado",
+    "title": "Ingeniero de Sistemas",
+    "specialization": "Especialista en Gestión de Sistemas de Información Gerencial",
+    "masters": "Maestrante en Ciberseguridad",
+    "photo": "assets/instructors/diego-pachon.jpg",
+    "courses": ["course_001"]
+  },
+  {
+    "id": "inst_002",
+    "name": "Fabio Alejandro Sastoque Rincón",
+    "title": "Ingeniero de Sistemas",
+    "specialization": "Especialista en Gestión de Sistemas de Información Gerencial",
+    "masters": "Maestrante en Inteligencia Artificial y Ciencia de Datos",
+    "photo": "assets/instructors/fabio-sastoque.jpg",
+    "courses": ["course_002"]
+  }
+]

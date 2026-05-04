@@ -1,0 +1,80 @@
+[
+  {
+    "id": "course_001",
+    "title": "Desarrollo Móvil con Flutter",
+    "description": "Capacita en desarrollo de apps multiplataforma (iOS/Android) con Flutter, promoviendo una visión ética y sostenible de la tecnología.",
+    "modality": "Presencial",
+    "status": "active",
+    "hours": {
+      "total": 48,
+      "in_person": 30,
+      "autonomous": 18
+    },
+    "instructor_ids": ["inst_001"],
+    "modules": [
+      { "order": 1, "title": "Introducción a Flutter y Dart", "description": "Instalación, conceptos básicos de Dart y primeras apps de consola." },
+      { "order": 2, "title": "Fundamentos y Widgets", "description": "Estructura de apps Flutter y construcción de interfaces simples." },
+      { "order": 3, "title": "Diseño de Interfaces", "description": "Widgets avanzados, diseño responsivo y Material Design." },
+      { "order": 4, "title": "Gestión del Estado", "description": "Stateful/Stateless Widgets, proveedores de estado y validación." },
+      { "order": 5, "title": "Conexión a APIs", "description": "Consumo de APIs, parseo de JSON e integración de datos externos." },
+      { "order": 6, "title": "Proyecto Final", "description": "Integración de conocimientos en un proyecto funcional." }
+    ],
+    "prices": {
+      "instructor": 250000,
+      "graduate": 350000,
+      "executive": 450000,
+      "community": 550000
+    },
+    "currency": "COP"
+  },
+  {
+    "id": "course_002",
+    "title": "Alfabetización Digital",
+    "description": "Desarrolla competencias básicas en uso de dispositivos, navegación, comunicación y gestión de información digital.",
+    "modality": "Virtual",
+    "status": "active",
+    "hours": {
+      "total": 48,
+      "in_person": 35,
+      "autonomous": 13
+    },
+    "instructor_ids": ["inst_002"],
+    "modules": [
+      { "order": 1, "title": "Introducción", "description": "Conceptos básicos, dispositivos y uso del sistema operativo." },
+      { "order": 2, "title": "Sistema Operativo y Archivos", "description": "Navegación, manejo y organización de archivos." },
+      { "order": 3, "title": "Navegación Segura", "description": "Búsquedas efectivas y prácticas seguras de navegación." },
+      { "order": 4, "title": "Correo y Comunicación", "description": "Gestión de cuentas de correo y plataformas de videollamadas." },
+      { "order": 5, "title": "Productividad", "description": "Uso de Google Drive/OneDrive y creación de documentos." },
+      { "order": 6, "title": "Ciudadanía Digital", "description": "Derechos, deberes, huella digital y prevención de ciberacoso." },
+      { "order": 7, "title": "Aplicaciones Prácticas", "description": "Uso de apps para pagos, salud, transporte y servicios en línea." }
+    ],
+    "prices": {
+      "instructor": 200000,
+      "graduate": 280000,
+      "executive": 380000,
+      "community": 480000
+    },
+    "currency": "COP"
+  },
+  {
+    "id": "course_003",
+    "title": "Estadística y Análisis de Datos",
+    "description": "Domina el mundo de los datos con fundamentos estadísticos y herramientas de análisis modernas.",
+    "modality": "Virtual",
+    "status": "coming_soon",
+    "hours": {
+      "total": null,
+      "in_person": null,
+      "autonomous": null
+    },
+    "instructor_ids": [],
+    "modules": [],
+    "prices": {
+      "instructor": null,
+      "graduate": null,
+      "executive": null,
+      "community": null
+    },
+    "currency": "COP"
+  }
+]
