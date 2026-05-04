@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -255,6 +255,7 @@
           <button type="button" class="filter-btn active" data-filter="all">Todos</button>
           <button type="button" class="filter-btn" data-filter="Presencial">Presencial</button>
           <button type="button" class="filter-btn" data-filter="Virtual">Virtual</button>
+          <button type="button" class="filter-btn" data-filter="Semipresencial">Semipresencial</button>
           <button type="button" class="filter-btn" data-filter="coming_soon">Próximamente</button>
         </div>
         <div class="course-grid" id="courseGrid" data-empty-msg="No hay cursos que coincidan con el filtro.">
@@ -288,10 +289,6 @@
           <label for="cf-course">Curso de interés</label>
           <select id="cf-course" name="course">
             <option value="">Seleccione…</option>
-            <option value="course_001">Desarrollo Móvil con Flutter</option>
-            <option value="course_002">Alfabetización Digital</option>
-            <option value="course_003">Estadística y Análisis de Datos</option>
-            <option value="otro">Otro / consulta general</option>
           </select>
 
           <label for="cf-message">Mensaje</label>
@@ -334,6 +331,6 @@
 
   <button type="button" class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
 
-  <script src="js/main.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

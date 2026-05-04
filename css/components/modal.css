@@ -1,0 +1,91 @@
+/* Modal */
+.modal[hidden] {
+  display: none;
+}
+
+.modal:not([hidden]) {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 100% - 2rem);
+  margin: 10vh auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.5rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--green-pale);
+  color: var(--green-dark);
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: var(--green-light);
+}
+
+.modal-title {
+  margin: 0 2rem 0.25rem 0;
+  font-size: 1.35rem;
+}
+
+.modal-sub {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.price-table th,
+.price-table td {
+  padding: 0.65rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.price-table th {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+.price-table td:last-child {
+  font-weight: 700;
+  color: var(--green-mid);
+}
+
+.modal-placeholder {
+  padding: 1rem;
+  background: var(--green-pale);
+  border-radius: 8px;
+  color: var(--text-muted);
+}

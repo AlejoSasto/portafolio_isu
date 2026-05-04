@@ -1,0 +1,68 @@
+/* —— Hero —— */
+.hero {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(105deg, var(--green-pale) 0%, var(--white) 45%, var(--white) 100%);
+  border-bottom: 1px solid rgba(46, 125, 50, 0.15);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--green-mid);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.hero-desc {
+  color: var(--text-muted);
+  max-width: 52ch;
+  margin: 0 0 1.5rem;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  width: min(100%, 320px);
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--green-light);
+}
+
+.hero-card-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--green-mid);
+}
+
+.hero-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: var(--green-dark);
+}
+
+.hero-card-meta {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}

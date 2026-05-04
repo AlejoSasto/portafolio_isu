@@ -2,24 +2,46 @@
 
 Landing estática (HTML, CSS y JavaScript) para el portafolio de cursos de educación continuada del programa de **Ingeniería de Sistemas y Computación**, Universidad de Cundinamarca, Seccional Ubaté.
 
-## Estructura
+## Estructura del proyecto (modular)
 
 ```
 ├── index.html
-├── css/styles.css
-├── js/main.js
+├── css/
+│   ├── main.css              ← entrada de estilos (@import de módulos)
+│   ├── styles.css            ← reexporta main.css (compatibilidad)
+│   ├── base/                 ← variables, tipografía, layout base
+│   ├── components/           ← botones, navbar, cards, modal, back-top
+│   ├── sections/             ← hero, bloques institucionales, instructores, cursos, contacto
+│   ├── layout/               ← breadcrumbs, footer, responsive
+│   └── utilities/            ← reveal on scroll
+├── js/
+│   ├── app.js                ← entrada (ES modules)
+│   ├── config.js             ← rutas JSON y textos UI
+│   ├── state.js              ← caché en memoria (instructores / cursos)
+│   ├── services/api.js       ← fetch JSON (sustituible por API)
+│   ├── domain/               ← reglas (p. ej. relación curso–gestor)
+│   ├── utils/                ← sanitize, format
+│   ├── components/           ← plantillas HTML de tarjetas
+│   └── features/             ← catálogo, modal precios, navegación, formulario, etc.
 ├── data/
 │   ├── instructors.json
 │   └── courses.json
 ├── assets/
-│   ├── escudo-color.png     ← escudo oficial de la Universidad
-│   └── instructors/         ← fotos opcionales (referenciadas en JSON)
+│   ├── escudo-color.png
+│   └── instructors/
+├── Cursos/                   ← fichas fuente; ignorada por git (ver .gitignore)
 └── README.md
 ```
 
+**JavaScript:** `app.js` orquesta la carga; cada módulo tiene una responsabilidad acotada para facilitar pruebas y nuevas pantallas sin un monolito.
+
+**CSS:** nuevos bloques pueden añadirse como archivos bajo `css/sections/` o `css/components/` e importarse desde `css/main.css` en el orden deseado.
+
+El catálogo en `data/courses.json` se elabora a partir de las fichas técnicas radicadas (carpeta **Cursos**). Esa carpeta está en `.gitignore` para no versionar documentos internos; conserve una copia local al clonar el repositorio.
+
 ## Cómo ver el sitio en local
 
-Los datos se cargan con `fetch()`. Abrir `index.html` directamente desde el disco (`file://`) suele fallar por políticas del navegador. Use un servidor HTTP local, por ejemplo:
+Los datos se cargan con `fetch()` y el código usa **módulos ES** (`import`/`export`). Abrir `index.html` con `file://` suele fallar. Use un servidor HTTP local, por ejemplo:
 
 ```bash
 # Python 3

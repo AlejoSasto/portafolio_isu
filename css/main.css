@@ -1,0 +1,20 @@
+/**
+ * Punto de entrada de estilos — importa módulos en orden de cascada.
+ * Universidad de Cundinamarca · ISC Ubaté · Educación continuada
+ */
+@import url("base/variables.css");
+@import url("base/typography-layout.css");
+@import url("components/buttons.css");
+@import url("components/navbar.css");
+@import url("sections/hero.css");
+@import url("layout/breadcrumbs.css");
+@import url("components/cards.css");
+@import url("sections/institutional.css");
+@import url("sections/instructors.css");
+@import url("sections/courses.css");
+@import url("sections/contact.css");
+@import url("layout/footer.css");
+@import url("components/modal.css");
+@import url("components/back-top.css");
+@import url("utilities/reveal.css");
+@import url("layout/responsive.css");

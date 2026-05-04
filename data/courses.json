@@ -1,80 +1,118 @@
 [
   {
     "id": "course_001",
-    "title": "Desarrollo Móvil con Flutter",
-    "description": "Capacita en desarrollo de apps multiplataforma (iOS/Android) con Flutter, promoviendo una visión ética y sostenible de la tecnología.",
-    "modality": "Presencial",
+    "title": "Python Fundamentos: Programación para la Resolución de Problemas",
+    "description": "Introduce de forma gradual y práctica los fundamentos de la programación con Python: algoritmos, estructuras de control y datos, y resolución de problemas del contexto del participante, en coherencia con el enfoque MEDIT (autonomía, pensamiento crítico y trabajo colaborativo). Seccional Ubaté — Educación continua.",
+    "modality": "Virtual",
     "status": "active",
-    "hours": {
-      "total": 48,
-      "in_person": 30,
-      "autonomous": 18
-    },
-    "instructor_ids": ["inst_001"],
+    "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
+    "instructor_ids": ["inst_005"],
     "modules": [
-      { "order": 1, "title": "Introducción a Flutter y Dart", "description": "Instalación, conceptos básicos de Dart y primeras apps de consola." },
-      { "order": 2, "title": "Fundamentos y Widgets", "description": "Estructura de apps Flutter y construcción de interfaces simples." },
-      { "order": 3, "title": "Diseño de Interfaces", "description": "Widgets avanzados, diseño responsivo y Material Design." },
-      { "order": 4, "title": "Gestión del Estado", "description": "Stateful/Stateless Widgets, proveedores de estado y validación." },
-      { "order": 5, "title": "Conexión a APIs", "description": "Consumo de APIs, parseo de JSON e integración de datos externos." },
-      { "order": 6, "title": "Proyecto Final", "description": "Integración de conocimientos en un proyecto funcional." }
+      { "order": 1, "title": "Introducción a la programación y al lenguaje Python", "description": "¿Qué es programar?, aplicaciones reales, entorno de trabajo, variables, tipos de datos, entrada y salida." },
+      { "order": 2, "title": "Estructuras de control y de datos en Python", "description": "Condicionales, ciclos for y while, listas y diccionarios aplicados a problemas cotidianos." },
+      { "order": 3, "title": "Funciones, lógica y proyectos", "description": "Definición y uso de funciones, pensamiento computacional, automatización básica y pequeños proyectos guiados." }
     ],
-    "prices": {
-      "instructor": 250000,
-      "graduate": 350000,
-      "executive": 450000,
-      "community": 550000
-    },
+    "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
   },
   {
     "id": "course_002",
-    "title": "Alfabetización Digital",
-    "description": "Desarrolla competencias básicas en uso de dispositivos, navegación, comunicación y gestión de información digital.",
+    "title": "Herramientas Digitales e IA para la Innovación Educativa",
+    "description": "Comprender el ecosistema digital educativo y apropiar de forma ética y crítica herramientas digitales e inteligencia artificial para diseñar experiencias de aprendizaje innovadoras, automatizar procesos y tomar decisiones pedagógicas informadas, alineado con el MEDIT.",
     "modality": "Virtual",
     "status": "active",
-    "hours": {
-      "total": 48,
-      "in_person": 35,
-      "autonomous": 13
-    },
+    "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
     "instructor_ids": ["inst_002"],
     "modules": [
-      { "order": 1, "title": "Introducción", "description": "Conceptos básicos, dispositivos y uso del sistema operativo." },
-      { "order": 2, "title": "Sistema Operativo y Archivos", "description": "Navegación, manejo y organización de archivos." },
-      { "order": 3, "title": "Navegación Segura", "description": "Búsquedas efectivas y prácticas seguras de navegación." },
-      { "order": 4, "title": "Correo y Comunicación", "description": "Gestión de cuentas de correo y plataformas de videollamadas." },
-      { "order": 5, "title": "Productividad", "description": "Uso de Google Drive/OneDrive y creación de documentos." },
-      { "order": 6, "title": "Ciudadanía Digital", "description": "Derechos, deberes, huella digital y prevención de ciberacoso." },
-      { "order": 7, "title": "Aplicaciones Prácticas", "description": "Uso de apps para pagos, salud, transporte y servicios en línea." }
+      { "order": 1, "title": "Ecosistema digital, IA y ética", "description": "Ecosistema digital educativo, fundamentos de IA, tipos de IA, ética y riesgos en educación." },
+      { "order": 2, "title": "IA para el diseño de experiencias educativas", "description": "Generación de recursos, planificación, acompañamiento del aprendizaje y analítica básica." },
+      { "order": 3, "title": "Automatización y proyectos de innovación educativa", "description": "Flujos simples en casos reales y diseño de una propuesta de transformación para el contexto del participante." }
     ],
-    "prices": {
-      "instructor": 200000,
-      "graduate": 280000,
-      "executive": 380000,
-      "community": 480000
-    },
+    "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
   },
   {
     "id": "course_003",
-    "title": "Estadística y Análisis de Datos",
-    "description": "Domina el mundo de los datos con fundamentos estadísticos y herramientas de análisis modernas.",
+    "title": "Microsoft Power Automate: Automatización de Procesos para la Transformación Digital",
+    "description": "Identificar procesos repetitivos y diseñar flujos con Microsoft Power Automate (Cloud y Desktop) integrando Outlook, Excel y SharePoint, para optimizar tiempo y reducir errores con criterios éticos y alineación con el MEDIT.",
     "modality": "Virtual",
-    "status": "coming_soon",
-    "hours": {
-      "total": null,
-      "in_person": null,
-      "autonomous": null
-    },
-    "instructor_ids": [],
-    "modules": [],
-    "prices": {
-      "instructor": null,
-      "graduate": null,
-      "executive": null,
-      "community": null
-    },
+    "status": "active",
+    "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
+    "instructor_ids": ["inst_002"],
+    "modules": [
+      { "order": 1, "title": "Fundamentos de automatización y Power Platform", "description": "Conceptos de RPA, panorama de la Power Platform e identificación y priorización de procesos automatizables." },
+      { "order": 2, "title": "Power Automate Cloud y Desktop", "description": "Tipos de flujos, conectores, disparadores e integración con Outlook, Excel y SharePoint." },
+      { "order": 3, "title": "Soluciones y proyecto integrador", "description": "Modelado de flujos para casos reales, pruebas, ajustes y documentación del proyecto." }
+    ],
+    "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
+    "currency": "COP"
+  },
+  {
+    "id": "course_004",
+    "title": "Power BI: Análisis de Datos para la Toma de Decisiones",
+    "description": "Transformar datos en conocimiento accionable con Power BI: importación, transformación, modelado, indicadores y dashboards para decisiones éticas y contextualizadas, con fundamentos de inteligencia de negocios y analítica.",
+    "modality": "Virtual",
+    "status": "active",
+    "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
+    "instructor_ids": ["inst_005"],
+    "modules": [
+      { "order": 1, "title": "Fundamentos de BI y ecosistema Power BI", "description": "Inteligencia de negocios, analítica, tipos de datos, ética y responsabilidad en el uso de la información." },
+      { "order": 2, "title": "Power BI Desktop y Power Query", "description": "Conexión e importación de fuentes, transformación y limpieza, modelado básico, medidas e indicadores." },
+      { "order": 3, "title": "Dashboards e informes aplicados", "description": "Visualizaciones, narrativa con datos, publicación y proyecto aplicado al territorio o institución." }
+    ],
+    "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
+    "currency": "COP"
+  },
+  {
+    "id": "course_005",
+    "title": "Finanzas básicas",
+    "description": "Habilidades prácticas en lectura y elaboración de informes financieros básicos: estados simples, ingresos y gastos, flujo de caja y presupuestos, con presentación clara para interesados no técnicos. Virtual — ficha MIUr008 (Seccional Ubaté).",
+    "modality": "Virtual",
+    "status": "active",
+    "hours": { "total": 48, "in_person": 16, "autonomous": 32 },
+    "instructor_ids": ["inst_013"],
+    "modules": [
+      { "order": 1, "title": "Introducción a las finanzas", "description": "Matemáticas básicas (jerarquía de operadores, porcentajes, valor presente y futuro). Introducción a hojas de cálculo: Google, operaciones, funciones y plantillas." },
+      { "order": 2, "title": "Presupuesto, seguros y deudas", "description": "Construcción del presupuesto, estimación y control de gastos. Seguros y fondo de emergencias. Tasas, buró, tarjetas y reestructura de deudas." },
+      { "order": 3, "title": "Patrimonio y ahorro", "description": "Revisión del patrimonio, ahorro para emergencias y consideraciones sobre seguros e inversión básica." },
+      { "order": 4, "title": "Crédito e ingresos", "description": "Uso adecuado de tarjetas de crédito y análisis de fuentes de ingreso." }
+    ],
+    "prices": { "instructor": 150000, "graduate": 150000, "executive": 100000, "community": 150000 },
+    "currency": "COP"
+  },
+  {
+    "id": "course_006",
+    "title": "Gestión Financiera en la Era de la Inteligencia Artificial",
+    "description": "Uso responsable de herramientas de IA en análisis y gestión financiera personal y empresarial básica: presupuestación, flujo de caja, estados financieros y evaluación crítica de resultados (ética, sesgos y privacidad). Ficha aprobada con Fabio Sastoque, Diego Pachón y Milton Bravo.",
+    "modality": "Semipresencial",
+    "status": "active",
+    "hours": { "total": 48, "in_person": 32, "autonomous": 16 },
+    "instructor_ids": ["inst_004", "inst_003", "inst_013"],
+    "modules": [
+      { "order": 1, "title": "Fundamentos de finanzas y panorama de la IA", "description": "Finanzas personales y empresariales básicas. Qué es la IA, aplicaciones en el sector financiero y herramientas disponibles." },
+      { "order": 2, "title": "IA aplicada a la gestión financiera personal", "description": "Asistentes (ChatGPT, Gemini, Copilot) para presupuestos; hojas de cálculo con IA; simulación de escenarios (deudas, ahorro, inversión básica)." },
+      { "order": 3, "title": "IA en finanzas empresariales básicas", "description": "Interpretación de estados financieros simples con IA, proyecciones de flujo de caja y reportes para audiencias no técnicas." },
+      { "order": 4, "title": "Uso responsable, ética y riesgos", "description": "Sesgos algorítmicos, privacidad y seguridad, principios éticos, supervisión humana y casos de uso irresponsable." }
+    ],
+    "prices": { "instructor": 280000, "graduate": 280000, "executive": 280000, "community": 350000 },
+    "currency": "COP"
+  },
+  {
+    "id": "course_007",
+    "title": "Estadística y analítica de datos",
+    "description": "Competencias en estadística y análisis de datos con Python y Power BI para contextos educativos, administrativos y comunitarios, alineado con el MEDIT y el proyecto territorial del aula al dato en la provincia de Ubaté.",
+    "modality": "Semipresencial",
+    "status": "active",
+    "hours": { "total": 48, "in_person": 35, "autonomous": 13 },
+    "instructor_ids": ["inst_004", "inst_003"],
+    "modules": [
+      { "order": 1, "title": "Fundamentos de Python para análisis de datos", "description": "Variables, control de flujo, estructuras de datos, funciones, Jupyter/Colab." },
+      { "order": 2, "title": "Manipulación y transformación con Python", "description": "Importación (CSV, Excel), pandas, limpieza, filtros, agrupaciones y preparación para análisis." },
+      { "order": 3, "title": "Estadística descriptiva aplicada", "description": "Población y muestra, tendencia central, dispersión, tablas de frecuencia, gráficos con matplotlib/seaborn." },
+      { "order": 4, "title": "Introducción al análisis de datos", "description": "Flujo de análisis, preguntas analíticas, ETL básico, buenas prácticas y mini proyecto guiado." },
+      { "order": 5, "title": "Visualización y dashboarding en Power BI", "description": "Importación, modelado, visualizaciones, dashboards, publicación y buenas prácticas." }
+    ],
+    "prices": { "instructor": 280000, "graduate": 280000, "executive": 280000, "community": 350000 },
     "currency": "COP"
   }
 ]

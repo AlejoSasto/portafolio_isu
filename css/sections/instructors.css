@@ -1,0 +1,141 @@
+/* Instructors */
+.instructor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.instructor-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--green-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.instructor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(27, 94, 32, 0.12);
+}
+
+.instructor-photo-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 1rem;
+}
+
+.instructor-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--green-pale);
+}
+
+.instructor-initials {
+  display: none;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+}
+
+.instructor-card.is-fallback .instructor-photo {
+  display: none;
+}
+
+.instructor-card.is-fallback .instructor-initials {
+  display: flex;
+}
+
+.instructor-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+  color: var(--green-dark);
+}
+
+.instructor-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 0.35rem;
+}
+
+.instructor-meta strong {
+  color: var(--text-dark);
+}
+
+.instructor-more {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.instructor-more summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--green-mid);
+  list-style: none;
+}
+
+.instructor-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.instructor-more summary::before {
+  content: "▸ ";
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.instructor-more[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.instructor-detail {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.instructor-block {
+  margin-bottom: 1rem;
+}
+
+.instructor-block strong {
+  display: block;
+  color: var(--green-dark);
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.instructor-pre {
+  color: var(--text-muted);
+  line-height: 1.55;
+  font-size: 0.82rem;
+}
+
+.instructor-link-row {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+}
+
+.instructor-link {
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.instructor-link:hover {
+  text-decoration: underline;
+}
