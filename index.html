@@ -276,7 +276,14 @@
             <li><strong>Sede:</strong> Ubaté, Cundinamarca</li>
           </ul>
         </div>
-        <form class="contact-form" id="contactForm" novalidate>
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://formspree.io/f/xojreznl"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="_subject" value="Educación continua ISC Ubaté — solicitud desde el sitio">
           <label for="cf-name">Nombre completo</label>
           <input type="text" id="cf-name" name="name" required autocomplete="name">
 
@@ -326,6 +333,18 @@
       <h2 id="modalTitle" class="modal-title">Tarifas por segmento</h2>
       <p class="modal-sub" id="modalCourseName"></p>
       <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="contactSuccessModal" role="dialog" aria-modal="true" aria-labelledby="contactSuccessTitle" hidden>
+    <div class="modal-backdrop" data-close-contact-success></div>
+    <div class="modal-card modal-card--contact-success">
+      <button type="button" class="modal-close" id="contactSuccessClose" aria-label="Cerrar">&times;</button>
+      <h2 id="contactSuccessTitle" class="modal-title">Envío exitoso</h2>
+      <p class="modal-success-message">
+        Su mensaje se envió correctamente. Nos estaremos comunicando con usted pronto.
+      </p>
+      <button type="button" class="btn btn-primary btn-block" data-close-contact-success>Aceptar</button>
     </div>
   </div>
 

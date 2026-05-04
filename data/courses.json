@@ -10,7 +10,7 @@
     "modules": [
       { "order": 1, "title": "Introducción a la programación y al lenguaje Python", "description": "¿Qué es programar?, aplicaciones reales, entorno de trabajo, variables, tipos de datos, entrada y salida." },
       { "order": 2, "title": "Estructuras de control y de datos en Python", "description": "Condicionales, ciclos for y while, listas y diccionarios aplicados a problemas cotidianos." },
-      { "order": 3, "title": "Funciones, lógica y proyectos", "description": "Definición y uso de funciones, pensamiento computacional, automatización básica y pequeños proyectos guiados." }
+      { "order": 3, "title": "Funciones, lógica y proyectos", "description": "Definición y uso de funciones, pensamiento computacional, automatización básica y desarrollo de pequeños proyectos guiados." }
     ],
     "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
@@ -24,9 +24,9 @@
     "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
     "instructor_ids": ["inst_002"],
     "modules": [
-      { "order": 1, "title": "Ecosistema digital, IA y ética", "description": "Ecosistema digital educativo, fundamentos de IA, tipos de IA, ética y riesgos en educación." },
-      { "order": 2, "title": "IA para el diseño de experiencias educativas", "description": "Generación de recursos, planificación, acompañamiento del aprendizaje y analítica básica." },
-      { "order": 3, "title": "Automatización y proyectos de innovación educativa", "description": "Flujos simples en casos reales y diseño de una propuesta de transformación para el contexto del participante." }
+      { "order": 1, "title": "Ecosistema digital, IA y ética", "description": "Ecosistema digital educativo, fundamentos de inteligencia artificial, tipos de IA, ética y riesgos en el uso de herramientas digitales e IA en educación." },
+      { "order": 2, "title": "IA para el diseño de experiencias educativas", "description": "Herramientas digitales e IA para el diseño de experiencias educativas: generación de recursos, apoyo a la planificación, acompañamiento del aprendizaje y analítica básica." },
+      { "order": 3, "title": "Automatización y proyectos de innovación educativa", "description": "Automatización y proyectos de innovación educativa: flujos simples aplicados a casos reales, diseño de una propuesta de transformación para el contexto del participante." }
     ],
     "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
@@ -40,9 +40,9 @@
     "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
     "instructor_ids": ["inst_002"],
     "modules": [
-      { "order": 1, "title": "Fundamentos de automatización y Power Platform", "description": "Conceptos de RPA, panorama de la Power Platform e identificación y priorización de procesos automatizables." },
-      { "order": 2, "title": "Power Automate Cloud y Desktop", "description": "Tipos de flujos, conectores, disparadores e integración con Outlook, Excel y SharePoint." },
-      { "order": 3, "title": "Soluciones y proyecto integrador", "description": "Modelado de flujos para casos reales, pruebas, ajustes y documentación del proyecto." }
+      { "order": 1, "title": "Fundamentos de automatización y Power Platform", "description": "Fundamentos de automatización de procesos, conceptos básicos de RPA y panorama de la Power Platform; identificación y priorización de procesos automatizables." },
+      { "order": 2, "title": "Power Automate Cloud y Desktop", "description": "Introducción a Power Automate Cloud y Desktop: tipos de flujos, conectores, disparadores e integración con Outlook, Excel y SharePoint en escenarios frecuentes." },
+      { "order": 3, "title": "Soluciones y proyecto integrador", "description": "Diseño y construcción de soluciones de automatización: modelado de flujos para casos reales del contexto del participante, pruebas, ajustes y documentación de un proyecto integrador." }
     ],
     "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
@@ -56,9 +56,9 @@
     "hours": { "total": 48, "in_person": 40, "autonomous": 8 },
     "instructor_ids": ["inst_005"],
     "modules": [
-      { "order": 1, "title": "Fundamentos de BI y ecosistema Power BI", "description": "Inteligencia de negocios, analítica, tipos de datos, ética y responsabilidad en el uso de la información." },
-      { "order": 2, "title": "Power BI Desktop y Power Query", "description": "Conexión e importación de fuentes, transformación y limpieza, modelado básico, medidas e indicadores." },
-      { "order": 3, "title": "Dashboards e informes aplicados", "description": "Visualizaciones, narrativa con datos, publicación y proyecto aplicado al territorio o institución." }
+      { "order": 1, "title": "Fundamentos de BI y ecosistema Power BI", "description": "Fundamentos de inteligencia de negocios y analítica de datos; ecosistema Power BI, tipos de datos, ética y responsabilidad en el uso de la información." },
+      { "order": 2, "title": "Power BI Desktop y Power Query", "description": "Conexión e importación de fuentes de datos, transformación y limpieza, modelado básico y creación de medidas e indicadores." },
+      { "order": 3, "title": "Dashboards e informes aplicados", "description": "Diseño de dashboards e informes interactivos: visualizaciones efectivas, narrativa con datos, publicación y construcción de un proyecto aplicado al territorio o institución." }
     ],
     "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
@@ -72,7 +72,7 @@
     "hours": { "total": 48, "in_person": 16, "autonomous": 32 },
     "instructor_ids": ["inst_013"],
     "modules": [
-      { "order": 1, "title": "Introducción a las finanzas", "description": "Matemáticas básicas (jerarquía de operadores, porcentajes, valor presente y futuro). Introducción a hojas de cálculo: Google, operaciones, funciones y plantillas." },
+      { "order": 1, "title": "Introducción a las finanzas", "description": "Matemáticas básicas: jerarquía de operadores, porcentajes, exponentes, valor presente y valor futuro. Introducción a hojas de cálculo: cuenta Google, Hojas de cálculo, operaciones, funciones, fijar celdas y obtención de plantillas del curso." },
       { "order": 2, "title": "Presupuesto, seguros y deudas", "description": "Construcción del presupuesto, estimación y control de gastos. Seguros y fondo de emergencias. Tasas, buró, tarjetas y reestructura de deudas." },
       { "order": 3, "title": "Patrimonio y ahorro", "description": "Revisión del patrimonio, ahorro para emergencias y consideraciones sobre seguros e inversión básica." },
       { "order": 4, "title": "Crédito e ingresos", "description": "Uso adecuado de tarjetas de crédito y análisis de fuentes de ingreso." }
@@ -106,13 +106,52 @@
     "hours": { "total": 48, "in_person": 35, "autonomous": 13 },
     "instructor_ids": ["inst_004", "inst_003"],
     "modules": [
-      { "order": 1, "title": "Fundamentos de Python para análisis de datos", "description": "Variables, control de flujo, estructuras de datos, funciones, Jupyter/Colab." },
-      { "order": 2, "title": "Manipulación y transformación con Python", "description": "Importación (CSV, Excel), pandas, limpieza, filtros, agrupaciones y preparación para análisis." },
-      { "order": 3, "title": "Estadística descriptiva aplicada", "description": "Población y muestra, tendencia central, dispersión, tablas de frecuencia, gráficos con matplotlib/seaborn." },
-      { "order": 4, "title": "Introducción al análisis de datos", "description": "Flujo de análisis, preguntas analíticas, ETL básico, buenas prácticas y mini proyecto guiado." },
-      { "order": 5, "title": "Visualización y dashboarding en Power BI", "description": "Importación, modelado, visualizaciones, dashboards, publicación y buenas prácticas." }
+      { "order": 1, "title": "Fundamentos de Python para análisis de datos", "description": "Conceptos básicos de programación; variables, tipos de datos y operadores; estructuras de control (condicionales y ciclos); listas, tuplas y diccionarios; funciones y módulos; introducción a Jupyter Notebook / Google Colab." },
+      { "order": 2, "title": "Manipulación y transformación de datos con Python", "description": "Importación de datos (CSV, Excel); uso básico de pandas; limpieza (valores nulos, duplicados); transformaciones: filtros, agrupaciones y uniones; preparación de datos para análisis estadístico." },
+      { "order": 3, "title": "Estadística descriptiva aplicada con Python", "description": "Población y muestra; medidas de tendencia central; medidas de dispersión; tablas de frecuencia; gráficos descriptivos con matplotlib y seaborn; interpretación de resultados." },
+      { "order": 4, "title": "Introducción al análisis de datos", "description": "Flujo del análisis de datos; identificación de problemas; formulación de preguntas analíticas; extracción, transformación y carga (ETL) básica; buenas prácticas del analista; mini proyecto guiado de análisis." },
+      { "order": 5, "title": "Visualización y dashboarding en Power BI", "description": "Instalación y entorno de trabajo; importación de datos; modelado básico; visualizaciones esenciales; creación de dashboards simples; publicación y buenas prácticas." }
     ],
     "prices": { "instructor": 280000, "graduate": 280000, "executive": 280000, "community": 350000 },
+    "currency": "COP"
+  },
+  {
+    "id": "course_008",
+    "title": "Desarrollo móvil con Flutter",
+    "description": "Capacitación en desarrollo de aplicaciones multiplataforma (iOS/Android) con Flutter y Dart, con enfoque en diseño responsivo, datos, APIs y proyecto integrador, y visión ética y sostenible de la tecnología. Según portafolio ISC — Seccional Ubaté.",
+    "modality": "Presencial",
+    "status": "active",
+    "hours": { "total": 48, "in_person": 30, "autonomous": 18 },
+    "instructor_ids": ["inst_003", "inst_004"],
+    "modules": [
+      { "order": 1, "title": "Introducción a Flutter y Dart", "description": "Instalación del entorno, conceptos básicos de Dart y primeras aplicaciones de consola." },
+      { "order": 2, "title": "Fundamentos y widgets", "description": "Estructura de aplicaciones Flutter y construcción de interfaces simples." },
+      { "order": 3, "title": "Diseño de interfaces", "description": "Widgets avanzados, diseño responsivo y Material Design." },
+      { "order": 4, "title": "Gestión del estado", "description": "Widgets Stateful y Stateless, proveedores de estado y validación de formularios." },
+      { "order": 5, "title": "Conexión a APIs", "description": "Consumo de servicios web, parseo de JSON e integración de datos externos." },
+      { "order": 6, "title": "Proyecto final", "description": "Integración de competencias en una aplicación funcional; accesibilidad, sostenibilidad y documentación profesional del proyecto." }
+    ],
+    "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
+    "currency": "COP"
+  },
+  {
+    "id": "course_009",
+    "title": "Alfabetización digital",
+    "description": "Competencias básicas en uso de dispositivos, sistema operativo y archivos, navegación segura, correo y videollamadas, productividad con herramientas en la nube, ciudadanía digital (derechos, huella, ciberacoso) y aplicaciones prácticas cotidianas. Según portafolio ISC — Virtual, Seccional Ubaté.",
+    "modality": "Virtual",
+    "status": "active",
+    "hours": { "total": 48, "in_person": 35, "autonomous": 13 },
+    "instructor_ids": ["inst_002"],
+    "modules": [
+      { "order": 1, "title": "Introducción", "description": "Conceptos básicos, dispositivos y uso del sistema operativo." },
+      { "order": 2, "title": "Sistema operativo y archivos", "description": "Navegación, manejo y organización de archivos y carpetas." },
+      { "order": 3, "title": "Navegación segura", "description": "Búsquedas efectivas y prácticas seguras en Internet." },
+      { "order": 4, "title": "Correo y comunicación", "description": "Gestión de cuentas de correo y plataformas de videollamadas." },
+      { "order": 5, "title": "Productividad", "description": "Uso de Google Drive y OneDrive; creación y colaboración en documentos, hojas de cálculo y presentaciones." },
+      { "order": 6, "title": "Ciudadanía digital", "description": "Derechos y deberes, huella digital y prevención del ciberacoso." },
+      { "order": 7, "title": "Aplicaciones prácticas", "description": "Uso responsable de aplicaciones para pagos, salud, transporte y servicios en línea." }
+    ],
+    "prices": { "instructor": 225000, "graduate": 240000, "executive": 210000, "community": 270000 },
     "currency": "COP"
   }
 ]

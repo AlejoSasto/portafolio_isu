@@ -26,10 +26,33 @@ function formatFormspreeErrors(body) {
   return "No se pudo enviar el formulario. Intente de nuevo más tarde.";
 }
 
+function openContactSuccessModal() {
+  const modal = document.getElementById("contactSuccessModal");
+  if (!modal) return;
+  modal.removeAttribute("hidden");
+  document.body.style.overflow = "hidden";
+  document.getElementById("contactSuccessClose")?.focus();
+}
+
+function closeContactSuccessModal() {
+  const modal = document.getElementById("contactSuccessModal");
+  if (!modal || modal.hasAttribute("hidden")) return;
+  modal.setAttribute("hidden", "");
+  document.body.style.overflow = "";
+}
+
 export function initContactForm() {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const submitBtn = form?.querySelector('button[type="submit"]');
+
+  document.querySelectorAll("[data-close-contact-success]").forEach((el) => {
+    el.addEventListener("click", closeContactSuccessModal);
+  });
+  document.getElementById("contactSuccessClose")?.addEventListener("click", closeContactSuccessModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeContactSuccessModal();
+  });
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -48,15 +71,16 @@ export function initContactForm() {
       }
     }
 
+    const endpoint =
+      (form.getAttribute("action") || "").trim() || CONFIG.formspree.endpoint;
     const fd = new FormData(form);
-    fd.append("_subject", "Educación continua ISC Ubaté — solicitud desde el sitio");
 
     status.style.color = "";
     status.textContent = "Enviando…";
     if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = true;
 
     try {
-      const res = await fetch(CONFIG.formspree.endpoint, {
+      const res = await fetch(endpoint, {
         method: "POST",
         body: fd,
         headers: { Accept: "application/json" },
@@ -65,10 +89,9 @@ export function initContactForm() {
       const data = await res.json().catch(() => ({}));
 
       if (res.ok) {
-        status.style.color = "";
-        status.textContent =
-          "¡Gracias! Su mensaje fue enviado. Nos pondremos en contacto pronto.";
+        status.textContent = "";
         form.reset();
+        openContactSuccessModal();
       } else {
         status.style.color = "#c62828";
         status.textContent = formatFormspreeErrors(data);

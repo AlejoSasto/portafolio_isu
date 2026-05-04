@@ -89,3 +89,14 @@
   border-radius: 8px;
   color: var(--text-muted);
 }
+
+.modal-card--contact-success .modal-success-message {
+  margin: 0 0 1.25rem;
+  line-height: 1.55;
+  color: var(--text-body, #333);
+  font-size: 1rem;
+}
+
+.modal-card--contact-success .btn {
+  margin-top: 0.25rem;
+}

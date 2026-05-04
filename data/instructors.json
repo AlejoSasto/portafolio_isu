@@ -25,7 +25,7 @@
     "email": "ehmanrique@ucundinamarca.edu.co",
     "cvlac": "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0002450610",
     "photo": "assets/instructors/erin-manrique-lara.jpg",
-    "courses": ["course_002", "course_003"]
+    "courses": ["course_002", "course_003", "course_009"]
   },
   {
     "id": "inst_003",
@@ -39,7 +39,7 @@
     "email": "dfpachon@ucundinamarca.edu.co",
     "cvlac": "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001697992",
     "photo": "assets/instructors/diego-pachon-maldonado.jpg",
-    "courses": ["course_006", "course_007"]
+    "courses": ["course_006", "course_007", "course_008"]
   },
   {
     "id": "inst_004",
@@ -53,7 +53,7 @@
     "email": "fasastoque@ucundinamarca.edu.co",
     "cvlac": "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0002100666",
     "photo": "assets/instructors/fabio-sastoque-rincon.jpg",
-    "courses": ["course_006", "course_007"]
+    "courses": ["course_006", "course_007", "course_008"]
   },
   {
     "id": "inst_005",
