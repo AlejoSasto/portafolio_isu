@@ -26,8 +26,12 @@ Las rutas de archivo también están centralizadas en `CONFIG.routes` dentro de 
 ├── contacto.html
 ├── package.json              ← `npm start` (Express) y pruebas (Vitest)
 ├── vitest.config.js
+├── api/
+│   └── chat.js               ← Vercel: POST /api/chat (Serverless)
 ├── server/
-│   └── index.mjs             ← estáticos + POST /api/chat (Gemini)
+│   ├── index.mjs             ← local: estáticos + POST /api/chat (Express)
+│   └── chatCore.mjs          ← lógica compartida con Vercel
+├── vercel.json               ← opciones de la función (p. ej. maxDuration)
 ├── data/
 │   ├── instructors.json
 │   ├── courses.json
@@ -69,7 +73,7 @@ Después de `npm install`:
 npm test
 ```
 
-Vitest ejecuta los archivos `*.spec.js` junto a los módulos en `js/` (p. ej. `sanitize`, relaciones instructor–curso, respuestas del asistente y resolución del ítem activo del menú).
+Vitest ejecuta los archivos `*.spec.js` en `js/` y `server/` (p. ej. `sanitize`, relaciones instructor–curso, respuestas del asistente, `normalizeMessages` del chat y resolución del ítem activo del menú).
 
 El catálogo en `data/courses.json` se elabora a partir de las fichas técnicas radicadas (carpeta **Cursos**). Esa carpeta está en `.gitignore` para no versionar documentos internos; conserve una copia local al clonar el repositorio.
 
@@ -88,7 +92,18 @@ npm start
 Abra `http://localhost:3000/cursos.html` (puerto configurable con `PORT` en `.env`).
 
 - Contexto institucional versionado: [data/chatbot/knowledge-base.json](data/chatbot/knowledge-base.json). Si actualiza textos en [programa.html](programa.html), revise o actualice la KB para evitar respuestas desalineadas.
-- **GitHub Pages** (solo estático) no ejecuta este servidor; para producción necesita un host con Node o un proxy serverless que reenvíe a Gemini con la clave en el servidor.
+
+### Despliegue en Vercel
+
+El repositorio incluye [api/chat.js](api/chat.js) (Serverless Function) y la lógica compartida en [server/chatCore.mjs](server/chatCore.mjs), de modo que `POST /api/chat` deja de responder 404 en `*.vercel.app`.
+
+1. Conecte el proyecto en [Vercel](https://vercel.com) (import desde Git).
+2. En **Configuración del proyecto → Variables de entorno**, añada `GEMINI_API_KEY` para **Producción** (y **Preview** si lo desea).
+3. Vuelva a **desplegar** el último commit.
+
+[vercel.json](vercel.json) define `maxDuration` de 60 s para esa función (en planes gratuitos el máximo efectivo puede ser menor; si hay timeouts, revise el plan o acorte el contexto enviado a Gemini).
+
+**GitHub Pages** (solo estático) no ejecuta `api/chat.js`; use Vercel u otro host con funciones serverless o un backend Node.
 
 Si una clave se expuso en un chat o captura, **rótela** en la consola de Google.
 
