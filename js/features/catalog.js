@@ -10,7 +10,6 @@ import { renderInstructorCard, wireInstructorPhotos } from "../components/instru
 import { renderCourseCard } from "../components/courseCard.js";
 import { openPricingModal } from "./pricingModal.js";
 import { escapeHtml } from "../utils/sanitize.js";
-import { buildInterdisciplinarySectionsHtml } from "../domain/interdisciplinaryNote.js";
 
 /** @type {Promise<Array<Record<string, unknown>>> | null} */
 let coursesLoadPromise = null;
@@ -92,33 +91,14 @@ export async function loadInstructors() {
   const grid = document.getElementById("instructorGrid");
   if (!grid) return;
 
-  const institutionalEl = document.getElementById(
-    "interdisciplinaryInstitutional"
-  );
-
   try {
     const data = await fetchJson(CONFIG.data.instructors);
     if (!Array.isArray(data)) throw new Error("Formato inválido");
     setInstructors(data);
     grid.innerHTML = data.map((inst) => renderInstructorCard(inst)).join("");
     wireInstructorPhotos();
-
-    if (institutionalEl) {
-      const institutionalHtml = buildInterdisciplinarySectionsHtml(data);
-      if (institutionalHtml) {
-        institutionalEl.hidden = false;
-        institutionalEl.innerHTML = institutionalHtml;
-      } else {
-        institutionalEl.hidden = true;
-        institutionalEl.innerHTML = "";
-      }
-    }
   } catch {
     grid.innerHTML = `<p class="section-lead">${grid.getAttribute("data-empty-msg") || "Error al cargar instructores."}</p>`;
-    if (institutionalEl) {
-      institutionalEl.hidden = true;
-      institutionalEl.innerHTML = "";
-    }
   }
 }
 

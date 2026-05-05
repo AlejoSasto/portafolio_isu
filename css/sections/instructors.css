@@ -1,24 +1,4 @@
 /* Instructors */
-.institutional-note {
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.25rem;
-  background: var(--green-pale);
-  border-left: 4px solid var(--green-light);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.institutional-note__paragraph {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--text-muted);
-}
-
-.institutional-note__paragraph + .institutional-note__paragraph {
-  margin-top: 0.75rem;
-}
-
 .instructor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
