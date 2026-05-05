@@ -86,7 +86,7 @@ export function renderCourseCard(course, instructors) {
         ${modulesHtml}
         <div class="course-actions">
           ${priceBtn}
-          <a class="btn btn-primary" href="#contact">Inscribirme</a>
+          <a class="btn btn-primary" href="contacto.html">Inscribirme</a>
         </div>
       </div>
     </article>

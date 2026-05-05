@@ -58,6 +58,40 @@
 
     <section class="section reveal" id="courses">
       <div class="container">
+        <section class="course-chatbot" aria-labelledby="course-chatbot-title">
+          <div class="course-chatbot-header">
+            <div>
+              <h2 id="course-chatbot-title" class="course-chatbot-title">Asistente del catálogo</h2>
+              <span class="course-chatbot-badge">Gemini · solo cursos, gestores y programa</span>
+            </div>
+          </div>
+          <div
+            id="courseChatMessages"
+            class="course-chat-messages"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions"
+          ></div>
+          <div id="chat-assistant-filter-bar" class="course-chat-filter-bar" hidden>
+            <span id="chat-assistant-filter-label"></span>
+            <button type="button" class="course-chat-filter-clear" id="chat-assistant-filter-clear">
+              Quitar filtros del asistente
+            </button>
+          </div>
+          <form id="courseChatForm" class="course-chat-form" novalidate>
+            <label class="visually-hidden" for="courseChatInput">Escriba su pregunta al asistente</label>
+            <input
+              id="courseChatInput"
+              name="message"
+              type="text"
+              maxlength="2000"
+              autocomplete="off"
+              placeholder="Ej.: ¿Tienen curso de Python? ¿Quiénes son los gestores?"
+            />
+            <button type="submit" id="courseChatSend">Enviar</button>
+          </form>
+        </section>
+
         <div class="filters" role="group" aria-label="Filtrar cursos">
           <button type="button" class="filter-btn active" data-filter="all">Todos</button>
           <button type="button" class="filter-btn" data-filter="Presencial">Presencial</button>

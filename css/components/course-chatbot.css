@@ -1,0 +1,225 @@
+/* Asistente de cursos (Gemini vía servidor) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.course-chatbot {
+  background: var(--white);
+  border: 2px solid var(--green-light);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.course-chatbot-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.course-chatbot-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--green-dark);
+}
+
+.course-chatbot-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  margin-top: 0.2rem;
+}
+
+.course-chat-messages {
+  min-height: 140px;
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.35rem 0;
+  margin-bottom: 0.65rem;
+  scroll-behavior: smooth;
+}
+
+.course-chat-msg {
+  display: flex;
+  max-width: 92%;
+  animation: courseChatFade 0.22s ease;
+}
+
+@keyframes courseChatFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.course-chat-msg--bot {
+  align-self: flex-start;
+}
+
+.course-chat-msg--user {
+  align-self: flex-end;
+}
+
+.course-chat-bubble {
+  padding: 0.55rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.course-chat-msg--bot .course-chat-bubble {
+  background: var(--green-pale);
+  color: var(--text-dark);
+  border-radius: 0 12px 12px 12px;
+}
+
+.course-chat-msg--user .course-chat-bubble {
+  background: var(--green-mid);
+  color: var(--white);
+  border-radius: 12px 12px 0 12px;
+}
+
+.course-chat-typing-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0.55rem 0.85rem;
+  background: var(--green-pale);
+  border-radius: 0 12px 12px 12px;
+}
+
+.course-chat-typing-dots span {
+  width: 7px;
+  height: 7px;
+  background: var(--green-mid);
+  border-radius: 50%;
+  animation: courseChatBounce 1.15s infinite ease-in-out;
+}
+
+.course-chat-typing-dots span:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.course-chat-typing-dots span:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+@keyframes courseChatBounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.72);
+    opacity: 0.45;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.course-chat-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  background: #fff9c4;
+  border: 1px solid #f9a825;
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.86rem;
+  margin-bottom: 0.65rem;
+}
+
+.course-chat-filter-bar[hidden] {
+  display: none !important;
+}
+
+.course-chat-filter-clear {
+  background: var(--green-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.course-chat-filter-clear:hover {
+  background: var(--green-mid);
+}
+
+.course-chat-filter-clear:focus-visible {
+  outline: 2px solid var(--green-mid);
+  outline-offset: 2px;
+}
+
+.course-chat-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.course-chat-form input {
+  flex: 1;
+  border: 1.5px solid var(--green-light);
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+}
+
+.course-chat-form input:focus-visible {
+  outline: 2px solid var(--green-mid);
+  outline-offset: 1px;
+}
+
+.course-chat-form button {
+  background: var(--green-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.course-chat-form button:hover:not(:disabled) {
+  background: var(--green-mid);
+}
+
+.course-chat-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .course-chat-msg {
+    max-width: 100%;
+  }
+}

@@ -14,6 +14,79 @@ import { escapeHtml } from "../utils/sanitize.js";
 /** @type {Promise<Array<Record<string, unknown>>> | null} */
 let coursesLoadPromise = null;
 
+/** @type {string} */
+let activeModalityFilter = "all";
+
+/** @type {string[] | null} */
+let chatHighlightCourseIds = null;
+
+function modalityMatchesCard(filterKey, modality, status) {
+  if (filterKey === "coming_soon") {
+    return status === "coming_soon";
+  }
+  if (
+    filterKey === "Presencial" ||
+    filterKey === "Virtual" ||
+    filterKey === "Semipresencial"
+  ) {
+    return modality === filterKey && status !== "coming_soon";
+  }
+  return true;
+}
+
+function syncFilterButtonActiveState() {
+  document.querySelectorAll(".filter-btn").forEach((btn) => {
+    const f = btn.getAttribute("data-filter") || "all";
+    btn.classList.toggle("active", f === activeModalityFilter);
+  });
+}
+
+/**
+ * Aplica filtro de modalidad + acotación por IDs del asistente.
+ */
+export function syncCourseGridVisibility() {
+  const grid = document.getElementById("courseGrid");
+  if (!grid) return;
+
+  const cards = grid.querySelectorAll(".course-card");
+  const highlightSet =
+    chatHighlightCourseIds && chatHighlightCourseIds.length > 0
+      ? new Set(chatHighlightCourseIds.map(String))
+      : null;
+
+  cards.forEach((card) => {
+    const modality = card.getAttribute("data-modality") || "";
+    const status = card.getAttribute("data-status") || "";
+    const id = card.getAttribute("data-id") || "";
+    const modalityOk = modalityMatchesCard(
+      activeModalityFilter,
+      modality,
+      status
+    );
+    const idOk = highlightSet === null || highlightSet.has(id);
+    card.classList.toggle("is-hidden", !(modalityOk && idOk));
+  });
+
+  let emptyMsg =
+    grid.getAttribute("data-empty-msg") || CONFIG.ui.courseGridEmptyDefault;
+  if (activeModalityFilter === "coming_soon") {
+    emptyMsg = CONFIG.ui.comingSoonEmpty;
+  }
+  const visible = [...cards].filter((c) => !c.classList.contains("is-hidden"));
+  let emptyEl = grid.querySelector(".course-empty");
+  if (visible.length === 0) {
+    if (!emptyEl) {
+      emptyEl = document.createElement("p");
+      emptyEl.className = "course-empty section-lead";
+      emptyEl.style.gridColumn = "1 / -1";
+      grid.appendChild(emptyEl);
+    }
+    emptyEl.textContent = emptyMsg;
+  } else if (emptyEl) {
+    emptyEl.remove();
+  }
+}
+
 export async function loadInstructors() {
   const grid = document.getElementById("instructorGrid");
   if (!grid) return;
@@ -87,6 +160,7 @@ export function renderCourseGridFromCache() {
     .map((c) => renderCourseCard(c, getInstructors()))
     .join("");
   bindPricingButtons(grid);
+  syncCourseGridVisibility();
 }
 
 export async function loadCourses() {
@@ -121,54 +195,71 @@ export async function loadCoursesForContactForm() {
  * @param {string} filterKey
  */
 export function filterCourses(filterKey) {
-  const grid = document.getElementById("courseGrid");
-  if (!grid) return;
+  activeModalityFilter = filterKey;
+  chatHighlightCourseIds = null;
+  syncFilterButtonActiveState();
+  syncCourseGridVisibility();
+  window.dispatchEvent(new CustomEvent("isc-catalog-manual-filter"));
+}
 
-  const cards = grid.querySelectorAll(".course-card");
-  cards.forEach((card) => {
-    const modality = card.getAttribute("data-modality") || "";
-    const status = card.getAttribute("data-status") || "";
-    let show = true;
-    if (filterKey === "coming_soon") {
-      show = status === "coming_soon";
-    } else if (
-      filterKey === "Presencial" ||
-      filterKey === "Virtual" ||
-      filterKey === "Semipresencial"
+/**
+ * @param {Record<string, unknown> | null | undefined} actions
+ */
+export function applyCatalogActions(actions) {
+  const a = actions || {};
+  const ca = /** @type {Record<string, unknown>} */ (a);
+
+  if (ca.show_all_courses === true) {
+    activeModalityFilter = "all";
+    chatHighlightCourseIds = null;
+    syncFilterButtonActiveState();
+    syncCourseGridVisibility();
+    return;
+  }
+
+  if (ca.set_modality_filter != null && ca.set_modality_filter !== "") {
+    const m = String(ca.set_modality_filter);
+    if (
+      m === "all" ||
+      m === "Presencial" ||
+      m === "Virtual" ||
+      m === "Semipresencial" ||
+      m === "coming_soon"
     ) {
-      show = modality === filterKey && status !== "coming_soon";
-    } else {
-      show = true;
+      activeModalityFilter = m;
+      syncFilterButtonActiveState();
     }
-    card.classList.toggle("is-hidden", !show);
-  });
+  }
 
-  let emptyMsg =
-    grid.getAttribute("data-empty-msg") || CONFIG.ui.courseGridEmptyDefault;
-  if (filterKey === "coming_soon") {
-    emptyMsg = CONFIG.ui.comingSoonEmpty;
-  }
-  const visible = [...cards].filter((c) => !c.classList.contains("is-hidden"));
-  let emptyEl = grid.querySelector(".course-empty");
-  if (visible.length === 0) {
-    if (!emptyEl) {
-      emptyEl = document.createElement("p");
-      emptyEl.className = "course-empty section-lead";
-      emptyEl.style.gridColumn = "1 / -1";
-      grid.appendChild(emptyEl);
+  if ("highlight_course_ids" in ca) {
+    if (Array.isArray(ca.highlight_course_ids)) {
+      const ids = ca.highlight_course_ids.map((x) => String(x)).filter(Boolean);
+      if (ids.length === 0) {
+        chatHighlightCourseIds = null;
+      } else {
+        const valid = new Set(getCourses().map((c) => String(c.id || "")));
+        const filtered = ids.filter((id) => valid.has(id));
+        chatHighlightCourseIds = filtered.length ? filtered : null;
+      }
+    } else {
+      chatHighlightCourseIds = null;
     }
-    emptyEl.textContent = emptyMsg;
-  } else if (emptyEl) {
-    emptyEl.remove();
   }
+
+  syncCourseGridVisibility();
+}
+
+export function resetAssistantCatalogView() {
+  activeModalityFilter = "all";
+  chatHighlightCourseIds = null;
+  syncFilterButtonActiveState();
+  syncCourseGridVisibility();
 }
 
 export function initCourseFilters() {
   const buttons = document.querySelectorAll(".filter-btn");
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
       const filter = btn.getAttribute("data-filter") || "all";
       filterCourses(filter);
     });

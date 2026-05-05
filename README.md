@@ -8,7 +8,7 @@ Sitio estático multipágina (HTML, CSS y JavaScript modular) con enfoque de **p
 |---------|-----------|
 | [index.html](index.html) | Inicio: banner informativo y tarjetas de acceso a cada sección |
 | [programa.html](programa.html) | Programa académico e institucional (misión, objetivos, perfiles, historia, investigación) |
-| [cursos.html](cursos.html) | Catálogo de educación continuada, filtros y modal de tarifas |
+| [cursos.html](cursos.html) | Catálogo, asistente (Gemini vía servidor), filtros y modal de tarifas |
 | [gestores.html](gestores.html) | Gestores del conocimiento |
 | [contacto.html](contacto.html) | Formulario de contacto e inscripción (Formspree) |
 
@@ -24,8 +24,15 @@ Las rutas de archivo también están centralizadas en `CONFIG.routes` dentro de 
 ├── cursos.html
 ├── gestores.html
 ├── contacto.html
-├── package.json              ← scripts de prueba (Vitest)
+├── package.json              ← `npm start` (Express) y pruebas (Vitest)
 ├── vitest.config.js
+├── server/
+│   └── index.mjs             ← estáticos + POST /api/chat (Gemini)
+├── data/
+│   ├── instructors.json
+│   ├── courses.json
+│   └── chatbot/
+│       └── knowledge-base.json  ← contexto institucional del asistente
 ├── css/
 │   ├── main.css              ← entrada de estilos (@import de módulos)
 │   ├── styles.css            ← reexporta main.css (compatibilidad)
@@ -42,10 +49,7 @@ Las rutas de archivo también están centralizadas en `CONFIG.routes` dentro de 
 │   ├── domain/               ← reglas (p. ej. relación curso–gestor)
 │   ├── utils/                ← sanitize, format
 │   ├── components/           ← plantillas HTML de tarjetas
-│   └── features/             ← catálogo, modal precios, navegación, activeNav, formulario, etc.
-├── data/
-│   ├── instructors.json
-│   └── courses.json
+│   └── features/             ← catálogo, chat, modal precios, navegación, activeNav, formulario, etc.
 ├── assets/
 │   ├── escudo-color.png
 │   └── instructors/
@@ -65,13 +69,34 @@ Después de `npm install`:
 npm test
 ```
 
-Vitest ejecuta los archivos `*.spec.js` junto a los módulos en `js/` (p. ej. `sanitize`, relaciones instructor–curso y resolución del ítem activo del menú).
+Vitest ejecuta los archivos `*.spec.js` junto a los módulos en `js/` (p. ej. `sanitize`, relaciones instructor–curso, respuestas del asistente y resolución del ítem activo del menú).
 
 El catálogo en `data/courses.json` se elabora a partir de las fichas técnicas radicadas (carpeta **Cursos**). Esa carpeta está en `.gitignore` para no versionar documentos internos; conserve una copia local al clonar el repositorio.
 
+## Asistente en cursos (Gemini)
+
+El chatbot de [cursos.html](cursos.html) llama a `POST /api/chat` en el **mismo origen**. La clave de Google Gemini **no** va en el navegador: créela en [Google AI Studio](https://aistudio.google.com/apikey), cópiela en un archivo `.env` (vea [.env.example](.env.example)) y **no** la suba a git.
+
+```bash
+npm install
+cp .env.example .env
+# Edite .env y asigne GEMINI_API_KEY=...
+
+npm start
+```
+
+Abra `http://localhost:3000/cursos.html` (puerto configurable con `PORT` en `.env`).
+
+- Contexto institucional versionado: [data/chatbot/knowledge-base.json](data/chatbot/knowledge-base.json). Si actualiza textos en [programa.html](programa.html), revise o actualice la KB para evitar respuestas desalineadas.
+- **GitHub Pages** (solo estático) no ejecuta este servidor; para producción necesita un host con Node o un proxy serverless que reenvíe a Gemini con la clave en el servidor.
+
+Si una clave se expuso en un chat o captura, **rótela** en la consola de Google.
+
 ## Cómo ver el sitio en local
 
-Los datos se cargan con `fetch()` y el código usa **módulos ES** (`import`/`export`). Abrir `index.html` con `file://` suele fallar. Use un servidor HTTP local, por ejemplo:
+Los datos se cargan con `fetch()` y el código usa **módulos ES** (`import`/`export`). Abrir `index.html` con `file://` suele fallar. Para **probar el sitio completo con el asistente**, use `npm start` (sección anterior).
+
+Sin el asistente, puede usar un servidor HTTP simple, por ejemplo:
 
 ```bash
 # Python 3

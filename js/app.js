@@ -9,6 +9,7 @@ import {
   loadCoursesForContactForm,
   loadInstructors,
 } from "./features/catalog.js";
+import { initCourseChatbot } from "./features/courseChatbot.js";
 import { initNavigation } from "./features/navigation.js";
 import { initProfileTabs } from "./features/profileTabs.js";
 import { initScrollReveal } from "./features/scrollReveal.js";
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     initCourseFilters();
     await loadInstructors();
     await loadCourses();
+    initCourseChatbot();
   }
 
   if (page === "gestores") {

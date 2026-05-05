@@ -18,6 +18,8 @@ export const CONFIG = {
   formspree: {
     endpoint: "https://formspree.io/f/xojreznl",
   },
+  /** POST al mismo origen cuando se usa `npm start` (Express). */
+  chatApiUrl: "/api/chat",
   ui: {
     courseGridEmptyDefault: "No hay cursos que coincidan con el filtro.",
     comingSoonEmpty:

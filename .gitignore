@@ -3,3 +3,4 @@ Cursos/
 cursos/
 
 node_modules/
+.env

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "site": {
+    "program_name": "Ingeniería de Sistemas y Computación (ISC)",
+    "institution": "Universidad de Cundinamarca",
+    "campus": "Seccional Ubaté, Cundinamarca, Colombia",
+    "pages": {
+      "home": "index.html",
+      "programa": "programa.html",
+      "cursos": "cursos.html",
+      "gestores": "gestores.html",
+      "contacto": "contacto.html"
+    }
+  },
+  "program": {
+    "summary": "Pregrado presencial en Ingeniería de Sistemas y Computación (título: Ingeniero de Sistemas y Computación), con presencia en varias sedes incluida la Seccional Ubaté. La oferta de educación continuada complementa la formación con cursos abiertos a distintos segmentos.",
+    "snies": "116385",
+    "registro_calificado": "RC 13108 (referencia en sitio; renovaciones históricas descritas en programa.html)",
+    "mission_excerpt": "Contribuir a la formación integral de personas en el ámbito regional y nacional, mediante procesos de enseñanza–aprendizaje, investigación y proyección social, con sentido humanista, ético y ambiental, para el desarrollo sostenible de la sociedad.",
+    "vision_excerpt": "Ser reconocida en el año 2032 como una institución de educación superior líder en la formación integral de personas, con proyección nacional e internacional, que responde con pertinencia y calidad a las necesidades del entorno.",
+    "research_ubate": "Grupo de investigación «Ebaté» (2009), línea translocal: aprendizaje, conocimiento, tecnologías, comunicación y digitalización. Semilleros CREINNG (2018) y PUCI (2023)."
+  },
+  "education_continuing": {
+    "currency": "COP",
+    "price_segments": [
+      { "key": "instructor", "label": "Gestor del conocimiento (instructor)" },
+      { "key": "graduate", "label": "Graduado" },
+      { "key": "executive", "label": "Directivo" },
+      { "key": "community", "label": "Comunidad externa" }
+    ],
+    "note": "Los precios y horas deben citarse exactamente como en data/courses.json. Un curso con status coming_soon puede no tener tarifas definidas."
+  },
+  "policies": {
+    "allowed_domains": [
+      "Cursos de educación continuada listados en el catálogo (data/courses.json).",
+      "Gestores del conocimiento (data/instructors.json) y su relación con cursos.",
+      "Programa ISC, sede Ubaté e información institucional contenida en esta base o en los JSON oficiales."
+    ],
+    "forbidden": [
+      "Temas ajenos al portafolio (política partidista, salud, finanzas personales, legal, otros programas de otras universidades, tareas escolares genéricas, chistes, contenido adulto, etc.)."
+    ],
+    "off_topic_reply": "Solo puedo ayudarte con información sobre nuestros cursos, docentes y el programa ISC. ¿En qué te puedo orientar?",
+    "language": "es"
+  },
+  "ux_copy": {
+    "welcome": "¡Hola! Soy el asistente del programa de Ingeniería de Sistemas y Computación (ISC), Universidad de Cundinamarca, Seccional Ubaté. Puedo orientarte sobre cursos de educación continuada, gestores del conocimiento e información del programa. ¿En qué te puedo ayudar?"
+  },
+  "examples": {
+    "cursos": [
+      "¿Tienen curso de Python?",
+      "¿Qué cursos hay en modalidad virtual?",
+      "Muéstrame todos los cursos"
+    ],
+    "gestores": [
+      "¿Quién acompaña el curso de herramientas digitales?",
+      "¿Qué gestores del conocimiento hay?"
+    ],
+    "programa": [
+      "¿Qué es el programa ISC en Ubaté?",
+      "¿Cuál es el SNIES del programa?"
+    ]
+  }
+}
