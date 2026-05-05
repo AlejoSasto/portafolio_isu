@@ -14,6 +14,14 @@
     grid-template-columns: 1fr;
   }
 
+  .contact-grid {
+    gap: 1.25rem;
+  }
+
+  .contact-grid > * {
+    min-width: 0;
+  }
+
   .timeline {
     grid-template-columns: 1fr;
   }
@@ -61,5 +69,31 @@
 @media (min-width: 769px) {
   .nav-burger {
     display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-grid {
+    gap: 1rem;
+  }
+
+  .contact-form {
+    padding: 1rem;
+    gap: 0.45rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .modal-card {
+    margin: 6vh auto;
+    width: min(520px, 100% - 1rem);
+    max-height: min(85vh, calc(100dvh - 2rem));
+    padding: 1.25rem 1rem 1.5rem;
   }
 }

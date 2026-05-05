@@ -9,8 +9,8 @@ Sitio estático multipágina (HTML, CSS y JavaScript modular) con enfoque de **p
 | [index.html](index.html) | Inicio: banner informativo y tarjetas de acceso a cada sección |
 | [programa.html](programa.html) | Programa académico e institucional (misión, objetivos, perfiles, historia, investigación) |
 | [cursos.html](cursos.html) | Catálogo, asistente (Gemini vía servidor), filtros y modal de tarifas |
-| [gestores.html](gestores.html) | Gestores del conocimiento |
-| [contacto.html](contacto.html) | Formulario de contacto e inscripción (Formspree) |
+| [gestores.html](gestores.html) | Gestores del conocimiento (nota institucional opcional de contexto interdisciplinar) |
+| [contacto.html](contacto.html) | Formulario de contacto e inscripción (Formspree), maquetación adaptable a móvil |
 
 El menú superior y el pie de página se repiten en cada HTML; si cambia la navegación o el footer, actualícelos en **todas** las vistas para mantener el shell alineado.
 
@@ -131,7 +131,7 @@ npx --yes serve .
 
 ## Editar cursos y gestores del conocimiento
 
-- **[data/instructors.json](data/instructors.json)** — Gestores: `id`, `name`, `title`, `specialization`, `masters`, `photo`, `courses` (ids de cursos).
+- **[data/instructors.json](data/instructors.json)** — Gestores: `id`, `name`, `title`, `specialization`, `masters`, `photo`, `courses` (ids de cursos). Opcional: `interdisciplinary: true` y `interdisciplinary_note` (texto mostrado solo en el bloque institucional de [gestores.html](gestores.html), fuera del perfil expandible de la tarjeta).
 - **[data/courses.json](data/courses.json)** — Cursos: `id`, `title`, `description`, `modality`, `status` (`active` | `coming_soon`), `hours` (`total`, `in_person`, `autonomous`), `instructor_ids`, `modules`, `prices` (`instructor`, `graduate`, `executive`, `community`), `currency`.
 
 Los precios están en **COP**. Un curso con `coming_soon` puede tener `hours` y `prices` en `null`; el sitio muestra “Próximamente” y oculta tarifas hasta definirlas.
