@@ -3,6 +3,13 @@
  */
 import fs from "fs/promises";
 import path from "path";
+import kbBundled from "../data/chatbot/knowledge-base.json" with {
+  type: "json",
+};
+import coursesBundled from "../data/courses.json" with { type: "json" };
+import instructorsBundled from "../data/instructors.json" with {
+  type: "json",
+};
 import {
   filterCourseIdsToValid,
   parseModelChatJson,
@@ -57,6 +64,33 @@ async function loadJson(projectRoot, relPath) {
   const full = path.join(projectRoot, ...relPath.split("/"));
   const buf = await fs.readFile(full, "utf8");
   return JSON.parse(buf);
+}
+
+/**
+ * Intenta leer `data/*.json` desde disco (Express local, edits en caliente).
+ * En Vercel el zip de la función no incluye `data/` salvo configuración extra;
+ * si falla, se usan los JSON empaquetados con el módulo (siempre presentes).
+ *
+ * @param {string} projectRoot
+ */
+export async function loadCatalog(projectRoot) {
+  try {
+    const [kb, courses, instructors] = await Promise.all([
+      loadJson(projectRoot, "data/chatbot/knowledge-base.json"),
+      loadJson(projectRoot, "data/courses.json"),
+      loadJson(projectRoot, "data/instructors.json"),
+    ]);
+    if (!Array.isArray(courses) || !Array.isArray(instructors)) {
+      throw new Error("invalid catalog shape");
+    }
+    return { kb, courses, instructors };
+  } catch {
+    return {
+      kb: kbBundled,
+      courses: coursesBundled,
+      instructors: instructorsBundled,
+    };
+  }
 }
 
 /**
@@ -187,22 +221,7 @@ export async function handleChatRequest(projectRoot, body) {
     );
   }
 
-  let kb;
-  let courses;
-  let instructors;
-  try {
-    [kb, courses, instructors] = await Promise.all([
-      loadJson(projectRoot, "data/chatbot/knowledge-base.json"),
-      loadJson(projectRoot, "data/courses.json"),
-      loadJson(projectRoot, "data/instructors.json"),
-    ]);
-  } catch {
-    throw new ChatRequestError(
-      "DATA_READ",
-      "No se pudieron leer los datos del catálogo.",
-      500
-    );
-  }
+  const { kb, courses, instructors } = await loadCatalog(projectRoot);
 
   if (!Array.isArray(courses) || !Array.isArray(instructors)) {
     throw new ChatRequestError(

@@ -103,6 +103,8 @@ El repositorio incluye [api/chat.js](api/chat.js) (Serverless Function) y la ló
 
 [vercel.json](vercel.json) define `maxDuration` de 60 s para esa función (en planes gratuitos el máximo efectivo puede ser menor; si hay timeouts, revise el plan o acorte el contexto enviado a Gemini).
 
+En producción, Vercel empaqueta la función sin la carpeta `data/` en el sistema de archivos del runtime; por eso [server/chatCore.mjs](server/chatCore.mjs) **importa** los mismos JSON del catálogo y, si la lectura desde disco falla, usa esa copia embebida (evita el error «No se pudieron leer los datos del catálogo»).
+
 **GitHub Pages** (solo estático) no ejecuta `api/chat.js`; use Vercel u otro host con funciones serverless o un backend Node.
 
 Si una clave se expuso en un chat o captura, **rótela** en la consola de Google.

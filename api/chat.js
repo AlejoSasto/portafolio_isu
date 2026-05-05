@@ -1,11 +1,18 @@
 /**
  * Vercel Serverless Function: POST /api/chat
  */
+import path from "path";
+import { fileURLToPath } from "url";
 import {
   ChatRequestError,
   handleChatRequest,
   MAX_BODY_BYTES,
 } from "../server/chatCore.mjs";
+
+const PROJECT_ROOT = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  ".."
+);
 
 /**
  * @param {import("http").IncomingMessage} req
@@ -76,7 +83,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const out = await handleChatRequest(process.cwd(), parsed);
+    const out = await handleChatRequest(PROJECT_ROOT, parsed);
     res.status(200).json(out);
   } catch (e) {
     if (e instanceof ChatRequestError) {
